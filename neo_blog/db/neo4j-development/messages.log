@@ -684,3 +684,20 @@ Storage files: (filename : modification date - size)
 2013-05-31 02:04:52.867+0000: Mounted management API at: /db/manage
 2013-05-31 02:04:52.939+0000: Mounted webadmin at: /webadmin
 2013-05-31 02:04:55.541+0000: --- SERVER STARTUP END ---
+2013-05-31 03:19:00.074+0000: Stopping - database is now unavailable
+2013-05-31 03:19:00.089+0000: TM shutting down
+2013-05-31 03:19:00.113+0000: Closed log /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/index/lucene.log
+2013-05-31 03:19:00.119+0000: Closed log /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/nioneo_logical.log
+2013-05-31 03:19:00.120+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.relationshiptypestore.db.names hit=0 miss=6 switches=0 ooe=0
+2013-05-31 03:19:00.121+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.relationshiptypestore.db hit=0 miss=3 switches=0 ooe=0
+2013-05-31 03:19:00.122+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.propertystore.db.strings hit=28 miss=0 switches=0 ooe=0
+2013-05-31 03:19:00.124+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.propertystore.db.index.keys hit=11 miss=0 switches=0 ooe=0
+2013-05-31 03:19:00.124+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.propertystore.db.index hit=6 miss=0 switches=0 ooe=0
+2013-05-31 03:19:00.125+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.propertystore.db.arrays hit=0 miss=0 switches=0 ooe=0
+2013-05-31 03:19:00.126+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.propertystore.db hit=21 miss=0 switches=0 ooe=0
+2013-05-31 03:19:00.127+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.relationshipstore.db hit=17 miss=0 switches=0 ooe=0
+2013-05-31 03:19:00.128+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore.nodestore.db hit=24 miss=0 switches=0 ooe=0
+2013-05-31 03:19:00.129+0000: /Users/shanerogers/projects/social_visualisation/neo4j_test/neo_blog/db/neo4j-development/neostore hit=0 miss=20 switches=0 ooe=0
+2013-05-31 03:19:00.130+0000: NeoStore closed
+2013-05-31 03:19:00.131+0000: --- SHUTDOWN diagnostics START ---
+2013-05-31 03:19:00.133+0000: --- SHUTDOWN diagnostics END ---
