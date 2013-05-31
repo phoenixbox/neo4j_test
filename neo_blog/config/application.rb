@@ -7,6 +7,8 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
+require 'neo4j'
+require 'neo4j-admin/railtie'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -68,6 +70,10 @@ module NeoBlog
     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
     # parameters by using an attr_accessible or attr_protected declaration.
     # config.active_record.whitelist_attributes = true
+
+    config.neo4j.storage_path = "#{config.root}/db/neo4j-#{Rails.env}"
+
+    config.neo4j.identity_map = false
 
     # Enable the asset pipeline
     config.assets.enabled = true
