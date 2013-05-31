@@ -68,3 +68,5 @@ Logger not configured, logging to std out instead: [FINEST] org.neo4j.server.web
 Logger not configured, logging to std out instead: [FINEST] org.neo4j.server.webadmin.rest.ShellSession@3b76d662
 Logger not configured, logging to std out instead: [FINEST] org.neo4j.server.webadmin.console.GremlinSession@2f300800
 Logger not configured, logging to std out instead: [FINEST] org.neo4j.server.webadmin.rest.ShellSession@3b76d662
+Logger not configured, logging to std out instead: [FINEST] org.neo4j.server.webadmin.console.GremlinSession@2f300800
+Logger not configured, logging to std out instead: [FINEST] org.neo4j.server.webadmin.rest.ShellSession@3b76d662

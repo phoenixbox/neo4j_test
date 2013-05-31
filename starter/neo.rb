@@ -5,7 +5,7 @@ require 'pry'
 @neo = Neography::Rest.new
 
 def create_person(name)
-  @neo.create_node("name" => name)
+  Neography::Node.create("name" => name)
 end
 
 def make_mutual_friends(node1, node2)
@@ -14,15 +14,25 @@ def make_mutual_friends(node1, node2)
 end
 
 def suggestions_for(node)
-  @neo.traverse(node,
-                "nodes", 
-                {"order" => "breadth first", 
-                 "uniqueness" => "node global", 
-                 "relationships" => {"type"=> "friends", 
-                                     "direction" => "in"}, 
-                 "return filter" => {"language" => "javascript",
-                                     "body" => "position.length() == 2;"},
-                 "depth" => 2}).map{|n| n["data"]["name"]}.join(', ')
+  binding.pry
+  node.incoming(:friends).
+     order("breadth first").
+     uniqueness("node global").
+     filter("position.length() == 2;").
+     depth(2).
+     map{|n| n.name }.join(', ')
+end
+
+def degrees_of_separation(start_node, destination_node)
+  paths =  @neo.get_paths(start_node, 
+                          destination_node, 
+                          {"type"=> "friends", "direction" => "in"},
+                          depth=4, 
+                          algorithm="shortestPath")
+  paths.each do |p|
+   p["names"] = p["nodes"].collect { |node| 
+     @neo.get_node_properties(node, "name")["name"] }
+  end
 end
 
 def get_relationships(node)
@@ -60,3 +70,7 @@ set_node_properties(node, "weight", 300)
 
 puts "The name of the node you were looking for is: #{node["data"]["name"]}"
 puts "This nodes properties are: #{get_node_properties(node)}"
+
+shane.shortest_path_to(elon).incoming(:friends).depth(3).nodes.each do |path|
+  puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
+end
