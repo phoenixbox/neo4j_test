@@ -71,6 +71,34 @@ set_node_properties(node, "weight", 300)
 puts "The name of the node you were looking for is: #{node["data"]["name"]}"
 puts "This nodes properties are: #{get_node_properties(node)}"
 
+path_functions = %w[all_paths_to all_simple_paths_to all_shortest_paths_to path_to simple_path_to shortest_path_to]
+
+puts "***************************************************************************"
+shane.all_paths_to(elon).incoming(:friends).depth(3).nodes.each do |path|
+  puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
+end
+
+puts "***************************************************************************"
+shane.all_simple_paths_to(elon).incoming(:friends).depth(3).nodes.each do |path|
+  puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
+end
+
+puts "***************************************************************************"
+shane.all_shortest_paths_to(elon).incoming(:friends).depth(3).nodes.each do |path|
+  puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
+end
+
+puts "***************************************************************************"
+shane.path_to(elon).incoming(:friends).depth(3).nodes.each do |path|
+  puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
+end
+
+puts "***************************************************************************"
+shane.simple_path_to(elon).incoming(:friends).depth(3).nodes.each do |path|
+  puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
+end
+
+puts "***************************************************************************"
 shane.shortest_path_to(elon).incoming(:friends).depth(3).nodes.each do |path|
   puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
 end
