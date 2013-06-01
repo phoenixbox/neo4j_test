@@ -78,7 +78,13 @@ set_node_properties(node, "weight", 300)
 puts "The name of the node you were looking for is: #{node["data"]["name"]}"
 puts "This nodes properties are: #{get_node_properties(node)}"
 
-path_functions = %w[all_paths_to all_simple_paths_to all_shortest_paths_to path_to simple_path_to shortest_path_to]
+puts ""
+puts "#{degrees_of_separation(shane, elon)}"
+puts "--------------------------- Degrees of separation ---------------------------"
+degrees_of_separation(shane, elon).each do |path|
+  puts "#{(path["names"].size - 1 )} degrees: " + path["names"].join(' => friends => ')
+end
+puts ""
 
 puts "********************** all_paths_to ******************************************"
 shane.all_paths_to(elon).incoming(:friends).depth(3).nodes.each do |path|
