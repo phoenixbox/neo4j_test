@@ -341,3 +341,21 @@ Storage files: (filename : modification date - size)
 2013-05-30 23:10:11,027 DEBUG [neo4j.diagnostics]: Mounted webadmin at: /webadmin
 2013-05-30 23:10:12,691 DEBUG [neo4j.diagnostics]: Server started on: http://localhost:7474/
 2013-05-30 23:10:12,691 DEBUG [neo4j.diagnostics]: --- SERVER STARTUP END ---
+2013-05-31 00:49:04,302 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 4051ms [total block time: 4.051s]
+2013-05-31 00:51:25,045 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 121564ms [total block time: 125.615s]
+2013-05-31 01:59:00,000 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 4053637ms [total block time: 4179.252s]
+2013-05-31 09:06:21,508 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 25592069ms [total block time: 29771.32s]
+2013-05-31 09:06:34,674 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 172ms [total block time: 29771.492s]
+2013-05-31 09:31:45,082 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 673ms [total block time: 29772.166s]
+2013-05-31 09:38:19,322 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 705ms [total block time: 29772.871s]
+2013-05-31 10:56:56,967 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 729ms [total block time: 29773.6s]
+2013-05-31 13:00:02,082 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 4201002ms [total block time: 33974.6s]
+2013-05-31 17:06:19,529 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 14733815ms [total block time: 48708.414s]
+2013-05-31 17:06:33,552 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 198ms [total block time: 48708.617s]
+2013-05-31 17:18:12,552 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 636ms [total block time: 48709.254s]
+2013-05-31 17:33:39,115 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 660ms [total block time: 48709.91s]
+2013-05-31 18:02:50,225 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 567ms [total block time: 48710.48s]
+2013-05-31 19:27:22,058 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 4200654ms [total block time: 52911.133s]
+2013-05-31 20:55:34,605 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 5255216ms [total block time: 58166.348s]
+2013-05-31 21:16:42,357 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 734ms [total block time: 58167.08s]
+2013-05-31 21:30:31,391 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 668ms [total block time: 58167.754s]

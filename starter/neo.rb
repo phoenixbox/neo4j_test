@@ -14,7 +14,6 @@ def make_mutual_friends(node1, node2)
 end
 
 def suggestions_for(node)
-  binding.pry
   node.incoming(:friends).
      order("breadth first").
      uniqueness("node global").
@@ -51,6 +50,14 @@ def get_node_properties(node)
   @neo.get_node_properties(node)
 end
 
+def incoming_relationship_depth(node,relationship,depth_n)
+  @nodes = node.incoming(relationship).depth(depth_n)
+end
+
+def rel_array
+  @nodes.to_a.map{|node|node.name}
+end
+
 shane     = create_person('Shane')
 franklin  = create_person('Franklin')
 kareem    = create_person('Kareem')
@@ -73,32 +80,42 @@ puts "This nodes properties are: #{get_node_properties(node)}"
 
 path_functions = %w[all_paths_to all_simple_paths_to all_shortest_paths_to path_to simple_path_to shortest_path_to]
 
-puts "***************************************************************************"
+puts "********************** all_paths_to ******************************************"
 shane.all_paths_to(elon).incoming(:friends).depth(3).nodes.each do |path|
   puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
 end
 
-puts "***************************************************************************"
+puts "********************** all_simple_paths_to ***************************************"
 shane.all_simple_paths_to(elon).incoming(:friends).depth(3).nodes.each do |path|
   puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
 end
 
-puts "***************************************************************************"
+puts "*********************** all_shortest_paths_to **************************************"
 shane.all_shortest_paths_to(elon).incoming(:friends).depth(3).nodes.each do |path|
   puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
 end
 
-puts "***************************************************************************"
+puts "************************ path_to ***********************************"
 shane.path_to(elon).incoming(:friends).depth(3).nodes.each do |path|
   puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
 end
 
-puts "***************************************************************************"
+puts "*********************** simple_path_to *************************************"
 shane.simple_path_to(elon).incoming(:friends).depth(3).nodes.each do |path|
   puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
 end
 
-puts "***************************************************************************"
+puts "*********************** shortest_path_to *************************************"
 shane.shortest_path_to(elon).incoming(:friends).depth(3).nodes.each do |path|
   puts "#{(path.size - 1)} degrees: " + path.map{|n| n.name}.join(" => friends => ")
 end
+
+puts "#{shane.outgoing.inspect}"
+
+incoming_relationship_depth(shane,:friends,4)
+puts "#{rel_array}"
+
+puts "#{shane.outgoing(:friends).depth(2)}"
+puts "#{shane.outgoing(:friends).depth(3)}"
+puts "#{shane.outgoing(:friends).depth(4)}"
+puts "#{elon.incoming}"
