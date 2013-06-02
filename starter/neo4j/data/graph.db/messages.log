@@ -359,3 +359,4 @@ Storage files: (filename : modification date - size)
 2013-05-31 20:55:34,605 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 5255216ms [total block time: 58166.348s]
 2013-05-31 21:16:42,357 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 734ms [total block time: 58167.08s]
 2013-05-31 21:30:31,391 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 668ms [total block time: 58167.754s]
+2013-05-31 22:12:41,737 INFO  [neo4j]: GC Monitor: Application threads blocked for an additional 624ms [total block time: 58168.375s]

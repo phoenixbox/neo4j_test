@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'neography'
 require 'pry'
+require 'sinatra'
+require 'uri'
 
 @neo = Neography::Rest.new
 
@@ -11,6 +13,14 @@ end
 def make_mutual_friends(node1, node2)
   @neo.create_relationship("friends", node1, node2)
   @neo.create_relationship("friends", node2, node1)
+end
+
+def make_following(node1, node2)
+  @new_rel = Neography::Relationship.create(:following, node1, node2) 
+end
+
+def relationship_attributes
+  @new_rel.attributes
 end
 
 def suggestions_for(node)
@@ -30,11 +40,13 @@ def degrees_of_separation(start_node, destination_node)
                           algorithm="shortestPath")
   paths.each do |p|
    p["names"] = p["nodes"].collect { |node| 
+    # this guy
      @neo.get_node_properties(node, "name")["name"] }
   end
 end
 
 def get_relationships(node)
+  binding.pry
   @neo.get_relationship(node) 
 end
 
@@ -64,11 +76,34 @@ kareem    = create_person('Kareem')
 paul      = create_person('Paul')
 elon      = create_person('Elon')
 
+jennifer  = create_person('Jennifer')
+sarah     = create_person('Sarah')
+miranda   = create_person('Miranda')
+alice     = create_person('Alice')
+rachel    = create_person('Rachel')
+
 make_mutual_friends(shane, franklin)
 make_mutual_friends(franklin, kareem)
 make_mutual_friends(franklin, paul)
 make_mutual_friends(paul, elon)
 make_mutual_friends(kareem, elon)
+make_mutual_friends(shane, sarah)
+
+rachel.incoming(:following) << alice
+jennifer.incoming(:following) << elon
+shane.incoming(:following) << paul
+rachel.incoming(:following) << miranda
+
+puts "--------------------------- Get Relationships ---------------------------"
+puts "#{get_relationships(sarah)}"
+
+puts "--------------------------- Make Relationship Following ---------------------------"
+puts "#{make_following(sarah,shane)}"
+
+puts "--------------------------- Get Relationship Attributes ---------------------------"
+puts "#{relationship_attributes}"
+
+puts "--------------------------- Relationship Attributes ---------------------------"
 puts "Shane should become friends with #{suggestions_for(shane)}"
 
 
